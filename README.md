@@ -1,2 +1,2 @@
-# nodejs-udemy-course
-Learn Node.js by building real-world applications with Node JS, Express, MongoDB, Jest, and more!
+# The Complete Node.js Developer Course
+Projects created as a part of [The Complete Node.js Developer Course (3rd Edition)](https://www.udemy.com/course/the-complete-nodejs-developer-course-2/) by Andrew Mead.
