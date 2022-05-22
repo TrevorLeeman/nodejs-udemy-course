@@ -1,14 +1,6 @@
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import chalk from "chalk";
-import { getNotes, addNote, removeNote } from "./notes.js";
-
-// console.log(getNotes());
-// console.log(chalk.redBright.bold.inverse("Fail!!!"));
-// const command = process.argv[2];
-
-// if (command === "add") console.log("Adding Note!");
-// else if (command === "remove") console.log("Removing Note!");
+import { listNotes, addNote, removeNote, readNote } from "./notes.js";
 
 // Customize yargs version
 const yarg = yargs(hideBin(process.argv));
@@ -29,9 +21,7 @@ yarg
         string: true,
       },
     },
-    handler: (argv) => {
-      addNote(argv.title, argv.body);
-    },
+    handler: (argv) => addNote(argv.title, argv.body),
   })
   .command({
     command: "remove",
@@ -43,24 +33,26 @@ yarg
         string: true,
       },
     },
-    handler: (argv) => {
-      removeNote(argv.title);
-    },
+    handler: (argv) => removeNote(argv.title),
   })
   .command({
     command: "list",
-    describe: "List all notes",
-    handler: () => {
-      console.log("List of notes");
-    },
+    describe: "List all note titles",
+    handler: () => listNotes(),
   })
   .command({
     command: "read",
     describe: "Read a single note",
-    handler: () => {
-      console.log("Reading your note");
+    builder: {
+      title: {
+        describe: "Note title to be read",
+        demanOption: true,
+        string: true,
+      },
     },
+    handler: (argv) => readNote(argv.title),
   })
   .parse();
+
 // console.log(process.argv);
 // console.log(y.argv);

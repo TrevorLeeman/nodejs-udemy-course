@@ -1,10 +1,11 @@
 {
-  "name": "notes_app",
+  "name": "notes-app",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug-add": "node --inspect app.js add --title=$npm_config_title --body=$npm_config_body"
   },
   "author": "",
   "license": "ISC",
